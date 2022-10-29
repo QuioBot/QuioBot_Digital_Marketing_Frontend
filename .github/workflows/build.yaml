@@ -23,7 +23,7 @@ jobs:
       - name: Login to DO Container Registry with short-lived creds
         run: doctl registry login --expiry-seconds 1200
       - name: Build container image
-        working-directory: ./web
+        working-directory: .
         run: |
           docker build -f Dockerfile \
             -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:latest \
