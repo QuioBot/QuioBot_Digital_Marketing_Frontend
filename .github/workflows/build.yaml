@@ -25,8 +25,8 @@ on:
 #         run: docker build . --file Dockerfile --tag elghibaomar/vuejs-k8s-web-final-test:latest 
           
       
-      - name: Docker Push
-        run: docker push elghibaomar/vuejs-k8s-web-final-test:latest
+      # - name: Docker Push
+      #   run: docker push elghibaomar/vuejs-k8s-web-final-test:latest
 
 jobs:
   build:
