@@ -24,10 +24,13 @@ jobs:
         run: doctl registry login --expiry-seconds 1200
       - name: Build container image
         working-directory: .
-        run: docker build -f Dockerfile -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:latest
-      - name: Push image
         run: |
-          docker push registry.digitalocean.com/quiobot-cnt/vue-k8s-web --all-tags
+          docker build -f Dockerfile \
+            -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:latest \
+            -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
+            .
+      - name: Push image
+        run: docker push registry.digitalocean.com/quiobot-cnt/vue-k8s-web --all-tags
       # - name: K8s cluster kubeconfig file with/ short-lived creds
       #   run: |
       #     doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
@@ -37,7 +40,7 @@ jobs:
           kubectl apply -f k8s/apps/vuejs-k8s-web.yaml  
       - name: Update Deployment image
         run: |
-          kubectl set image deployment/vuejs-k8s-web-deployment vuejs-k8s-web=registry.digitalocean.com/quiobot-cnt/vuejs-k8s-web:latest
+          kubectl set image deployment/vuejs-k8s-web-deployment vuejs-k8s-web=registry.digitalocean.com/quiobot-cnt/vuejs-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
       - name: Wait for rollout to finish
         run: |
           kubectl rollout status deployment/vuejs-k8s-web-deployment
