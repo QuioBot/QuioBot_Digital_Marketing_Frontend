@@ -47,8 +47,6 @@ jobs:
           kubectl rollout status deployment/vuejs-k8s-web-deployment
 
 
-
-
       # - name: Checkout code
       #   uses: actions/checkout@v2
       # - name: docker login
