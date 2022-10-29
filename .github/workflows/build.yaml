@@ -30,12 +30,13 @@ jobs:
             -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
             .
       - name: Push image
-        run: docker push registry.digitalocean.com/quiobot-cnt/vue-k8s-web --all-tags
+        run: |
+          docker push registry.digitalocean.com/quiobot-cnt/vue-k8s-web --all-tags
       # - name: K8s cluster kubeconfig file with/ short-lived creds
       #   run: |
       #     doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
 
-            - name: Deployment image
+      - name: Deployment image
         run: |
           kubectl apply -f k8s/apps/vuejs-k8s-web.yaml  
       - name: Update Deployment image
@@ -44,6 +45,8 @@ jobs:
       - name: Wait for rollout to finish
         run: |
           kubectl rollout status deployment/vuejs-k8s-web-deployment
+
+
 
 
       # - name: Checkout code
