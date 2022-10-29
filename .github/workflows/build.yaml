@@ -25,7 +25,7 @@ jobs:
       - name: Build container image
         working-directory: .
         run: |
-          docker build -f Dockerfile -t registry.digitalocean.com/quiobot-cnt/vue-k8s-web:latest
+          docker build . --file Dockerfile --tag registry.digitalocean.com/quiobot-cnt/vue-k8s-web:latest
       - name: Push image
         run: |
           docker push registry.digitalocean.com/quiobot-cnt/vue-k8s-web --all-tags
