@@ -49,12 +49,12 @@ jobs:
       - name: Deployment image
         run: |
           kubectl apply -f k8s/apps/digital-marketing-frontend.yaml 
-      - name: Update Deployment image
-        run: |
-          kubectl set image deployment/digital-marketing-frontend-deployment digital-marketing-frontend=elghibaomar/digital-marketing-frontend:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
-      - name: Wait for rollout to finish
-        run: |
-          kubectl rollout status deployment/digital-marketing-frontend-deployment
+      # - name: Update Deployment image
+      #   run: |
+      #     kubectl set image deployment/digital-marketing-frontend-deployment digital-marketing-frontend=elghibaomar/digital-marketing-frontend:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+      # - name: Wait for rollout to finish
+      #   run: |
+      #     kubectl rollout status deployment/digital-marketing-frontend-deployment
 
 
 
