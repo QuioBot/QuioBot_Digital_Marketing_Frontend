@@ -22,11 +22,11 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag elghibaomar/Digital_Marketing_Frontend:latest 
+        run: docker build . --file Dockerfile --tag elghibaomar/digital_marketing_frontend:latest 
           
       
       - name: Docker Push
-        run: docker push elghibaomar/Digital_Marketing_Frontend:latest
+        run: docker push elghibaomar/digital_marketing_frontend:latest
       # - name: K8s cluster kubeconfig file with/ short-lived creds
       #   run: |
       #     doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
