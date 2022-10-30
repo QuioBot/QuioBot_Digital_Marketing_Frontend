@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      CLUSTER_NAME: vuejs-k8s
+      CLUSTER_NAME: project-k8s
     steps:
       - uses: actions/checkout@v2
       - name: docker login
@@ -22,24 +22,32 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag elghibaomar/digital_marketing_frontend:latest 
+        run: docker build . --file Dockerfile --tag elghibaomar/digital-marketing-frontend:latest 
+
+      - name: Build container image
+        working-directory: .
+        run: |
+          docker build -f Dockerfile \
+            -t elghibaomar/digital-marketing-frontend:latest \
+            -t elghibaomar/digital-marketing-frontend:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
+            .
           
       
       - name: Docker Push
-        run: docker push elghibaomar/digital_marketing_frontend:latest
-      # - name: K8s cluster kubeconfig file with/ short-lived creds
-      #   run: |
-      #     doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
+        run: docker push elghibaomar/digital-marketing-frontend:latest
+      - name: K8s cluster kubeconfig file with/ short-lived creds
+        run: |
+          doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
 
-      # - name: Deployment image
-      #   run: |
-      #     kubectl apply -f k8s/apps/vuejs-k8s-web.yaml  
-      # - name: Update Deployment image
-      #   run: |
-      #     kubectl set image deployment/vuejs-k8s-web-deployment vuejs-k8s-web=registry.digitalocean.com/quiobot-cnt/vuejs-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
-      # - name: Wait for rollout to finish
-      #   run: |
-      #     kubectl rollout status deployment/vuejs-k8s-web-deployment
+      - name: Deployment image
+        run: |
+          kubectl apply -f k8s/apps/digital-marketing-frontend.yaml 
+      - name: Update Deployment image
+        run: |
+          kubectl set image deployment/digital-marketing-frontend-deployment digital-marketing-frontend=elghibaomar/digital-marketing-frontend:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+      - name: Wait for rollout to finish
+        run: |
+          kubectl rollout status deployment/digital-marketing-frontend-deployment
 
 
 

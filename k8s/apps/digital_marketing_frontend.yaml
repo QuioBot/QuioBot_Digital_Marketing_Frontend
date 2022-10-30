@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vuejs-k8s-web-final-deployment
+  name: digital-marketing-frontend-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: vuejs-k8s-web-final-deployment
+      app: digital-marketing-frontend-deployment
   template:
     metadata:
       labels:
-        app: vuejs-k8s-web-final-deployment
+        app: digital-marketing-frontend-deployment
     spec:
       containers:
-        - name: vuejs-k8s-web-final
-          image: elghibaomar/vuejs-k8s-web-final:latest
+        - name: digital-marketing-frontend
+          image: elghibaomar/digital-marketing-frontend:latest
           env:
             - name: PORT
               value: "8082"
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vuejs-k8s-web-final-service
+  name: digital-marketing-frontend-service
 spec:
   type: LoadBalancer
   ports:
@@ -35,7 +35,7 @@ spec:
       port: 80
       targetPort: 8082
   selector:
-    app: vuejs-k8s-web-final-deployment
+    app: digital-marketing-frontend-deployment
 
 
 
