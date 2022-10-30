@@ -13,8 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CLUSTER_NAME: project-k8s
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Insall doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_API_TOKEN_KEY }}
+      - name: Login to DO Container Registry with short-lived creds
+        run: doctl registry login --expiry-seconds 1200
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Insall doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_API_TOKEN_KEY }}
+      - name: Login to DO Container Registry with short-lived creds
+        run: doctl registry login --expiry-seconds 1200
       - name: docker login
         env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
