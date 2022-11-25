@@ -71,31 +71,31 @@
         isHeader
       /> -->
 
-      <NavLink
+      <!-- <NavLink
         header="To Do"
         link="/todo"
         iconName="flaticon-documentation"
         index="To Do"
         isHeader
-      />
+      /> -->
 
-      <NavLink
+      <!-- <NavLink
         header="Profile"
         link="/Profile"
         iconName="flaticon-person"
         index="Profile"
         isHeader
-      />
+      /> -->
 
     
-      
+<!--       
       <NavLink
         header="Upload"
         link="/Upload"
         iconName="flaticon-extra"
         index="Upload"
         isHeader
-      />
+      /> -->
     </ul>
    
 

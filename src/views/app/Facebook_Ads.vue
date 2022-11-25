@@ -23,7 +23,7 @@
                  <Widget
                         title="<h5> <span class='fw-semi-bold'>TRAFFIC VALUES</span></h5>"
                         close collapse customHeader> <br>
-                                    <Marital_Age_Groupe_Bar_Chart/>
+                        <test2/>
                         </widget>
 
                  </b-col>
@@ -206,7 +206,7 @@ export default {
   data() {
     return {
       visibleComponent: 1,
-      Componentsx: [{ text: 'MARITAL CUSTOMER NUMBER', value: 1 }, { text: 'Map', value: 2 }, { text: 'Monthly Customer Purchase', value: 3 }
+      Componentsx: [{ text: 'MARITAL CUSTOMER NUMBER', value: 1 }, { text: 'Monthly Customer Purchase', value: 3 }
       , { text: 'Customer Purchase', value: 5 }, { text: 'Marital Purchase', value: 6 }, { text: 'Customer Gender', value: 7 }],
       review: '',
       score: {},
