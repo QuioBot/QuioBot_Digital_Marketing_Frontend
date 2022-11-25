@@ -4,8 +4,9 @@ web/.env
 .kube/
 notes.md
 dgf
+node_modules
 
-# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL filesx
 __pycache__/
 *.py[cod]
 *$py.class
