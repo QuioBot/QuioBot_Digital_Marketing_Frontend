@@ -5,7 +5,7 @@
         <br><br>
          <img src="../../assets/pic/MLOPS.png"  width="200" height="200" class="center">
 
-          <p style="color:#fff;">User : test@mlops.ma</p>
+          <p style="color:#fff;">User : test@quiobot.com</p>
            <p style="color:#fff;">Password : test1234</p>
         <form class="mt" @submit.prevent="login">
           <b-alert class="alert-sm" variant="danger" :show="!!errorMessage">
@@ -82,7 +82,7 @@ export default {
   },
   created() {
     if (window.localStorage.getItem('authenticated') === 'true') {
-      this.$router.push('email_marketing');
+      this.$router.push('app/email_marketing');
     }
   },
 };

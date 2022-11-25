@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 function axiosTest() {
-  axios.get('http://127.0.0.1:8000/email_list')
+  axios.get('http://138.68.115.151/email_list')
       .then(response => response.data)
       .catch(error => error);
 }

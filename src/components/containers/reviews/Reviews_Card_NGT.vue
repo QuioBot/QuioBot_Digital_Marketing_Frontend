@@ -8,10 +8,10 @@
             </div>
             <div class="stat-item">
               <h6 class="name">Percentage %</h6>
-              <p style="color:#28a745;" class="value">0.33</p>
+              <p style="color:#28a745;" class="value">0.1</p>
             </div>
           </div>
-          <b-progress variant="danger" :value="0.33"
+          <b-progress variant="danger" :value="0.1"
             :max="1" class="progress-xs" />
             
           </div>

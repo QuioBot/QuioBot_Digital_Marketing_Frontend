@@ -8,17 +8,17 @@ export default {
   created() {
     const currentPath = this.$router.history.current.path;
 
-    if (window.localStorage.getItem('authenticated') === null) {
-        window.localStorage.setItem('authenticated', false);
-    }
+    // if (window.localStorage.getItem('authenticated') === null) {
+    //     window.localStorage.setItem('authenticated', false);
+    // }
 
 
     if (window.localStorage.getItem('authenticated') === 'false') {
       this.$router.push('/login');
     }
 
-    if (currentPath === '/' || currentPath === '/app') {
-      this.$router.push('/');
+    if (currentPath === '/' || currentPath === '/') {
+      this.$router.push('/Email_Marketing');
     }
   },
 };

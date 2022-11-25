@@ -90,7 +90,7 @@ export default {
   },
   async created(){
      await axios
-                .get('http://143.198.251.214/Conversion_Age_Marital')
+                .get('http://138.68.115.151/Conversion_Age_Marital')
                 .then(response => {
                     this.BarData3.data.datasets[0]['data'] = response.data["divorced"];
                     this.BarData3.data.datasets[1]['data'] = response.data["married"];

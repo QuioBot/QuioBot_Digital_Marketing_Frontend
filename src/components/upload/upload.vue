@@ -28,7 +28,7 @@ export default {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       axios
-        .post("http://143.198.251.214/upload", formData)
+        .post("http://138.68.115.151/upload", formData)
         .then(() => {
           console.log("SUCCESS");
         })

@@ -86,7 +86,7 @@ export default {
     async mounted(){
           // console.log('before')
           await axios
-                    .get('http://143.198.251.214/monthly_customer_purchase')
+                    .get('http://138.68.115.151/monthly_customer_purchase')
                     .then(response => {
                         this.apex.column.series[0]['data'] = response.data[2]}
                     );

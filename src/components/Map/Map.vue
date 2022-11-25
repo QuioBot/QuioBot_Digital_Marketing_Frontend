@@ -110,7 +110,7 @@ export default {
 
   async mounted() {
      await axios
-                .get('http://143.198.251.214/Countries_Purchase')
+                .get('http://138.68.115.151/Countries_Purchase')
                 .then(response => {
                     this.cities[0]['size'] = response.data[0][1]/50;
                     this.cities[1]['size'] = response.data[0][2]/50;

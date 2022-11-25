@@ -21,7 +21,7 @@
 
               <b-col>
                  <Widget
-                        title="<h5>Predict <span class='fw-semi-bold'>Customer Engagement</span></h5>"
+                        title="<h5> <span class='fw-semi-bold'>TRAFFIC VALUES</span></h5>"
                         close collapse customHeader> <br>
                                     <Marital_Age_Groupe_Bar_Chart/>
                         </widget>

@@ -35,24 +35,16 @@ export default new Router({
       name: 'Error',
       component: ErrorPage,
     },
-    {
-      path: '*',
-      name: 'Error',
-      component: ErrorPage,
-    },
-    {
-      path: '',
-      name: '',
-      component: welcome,
-    },
+    // {
+    //   path: '',
+    //   name: '',
+    //   component: welcome,
+    // },
     
     {
       path: '/app',
         name: 'Layout',
         component: Layout,
-        meta: {
-          requireLogin: true
-      },
 
 
       children: [
@@ -109,6 +101,12 @@ export default new Router({
           }
         ]}
       ]
+    }
+    ,
+    {
+      path: '*',
+      name: 'Error',
+      component: ErrorPage,
     }
     )
           

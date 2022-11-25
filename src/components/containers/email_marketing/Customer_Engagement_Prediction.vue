@@ -224,7 +224,7 @@ import Customer_Engagement_Result from '@/components/containers/email_marketing/
                         "/predict_engagement",{dct: {"Date":this.Dates,"Template":this.Template,"Age_Group":this.Age,"Gender":this.Gender,"Countries":this.Countries,"Marital":this.Marital,"provider":"prv-37","esp":this.Esp}},
                 )
                      .then((response) => {
-                            this.score = response.data.engagement
+                            this.score = response.data.engagement;
                         })
 
             }

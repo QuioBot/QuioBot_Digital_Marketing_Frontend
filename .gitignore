@@ -3,6 +3,7 @@ web/.env
 .DS_Store
 .kube/
 notes.md
+dgf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
