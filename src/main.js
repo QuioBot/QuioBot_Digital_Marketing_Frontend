@@ -10,7 +10,7 @@ import VueApexCharts from 'vue-apexcharts';
 
 
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/'
+axios.defaults.baseURL = 'http://34.168.239.57/'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
