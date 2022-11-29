@@ -8,7 +8,7 @@
     </transition>
   </div>
   <footer class="contentFooter">
-     <a href="http://localhost:8080" target="_blank">Omar El Ghiba - MLOPS</a>
+     <a href="http://localhost:8080" target="_blank">Omar El Ghiba - QuioBot</a>
   </footer>
 </div>
 </template>
